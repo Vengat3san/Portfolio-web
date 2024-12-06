@@ -1,65 +1,69 @@
-const canvas = document.getElementById("pendulumCanvas");
-const ctx = canvas.getContext("2d");
+// Background Animation with Particles
+const canvas = document.getElementById('backgroundCanvas');
+const ctx = canvas.getContext('2d');
 
-// Set canvas size
-canvas.width = 300;
-canvas.height = 300;
+// Resize canvas to fit window size
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-// Pendulum properties
-const originX = canvas.width / 2;
-const originY = 50;
-const length = 150;
-let angle = Math.PI / 4;
-let angleVelocity = 0;
-let angleAcceleration = 0;
-const gravity = 0.05;
+// Particle Class
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 5 + 1;
+    this.speedX = Math.random() * 3 - 1.5;
+    this.speedY = Math.random() * 3 - 1.5;
+  }
 
-// Draw pendulum
-function drawPendulum() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Draw each particle
+  draw() {
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
 
-  // Calculate pendulum position
-  const bobX = originX + length * Math.sin(angle);
-  const bobY = originY + length * Math.cos(angle);
-
-  // Draw pendulum arm
-  ctx.beginPath();
-  ctx.moveTo(originX, originY);
-  ctx.lineTo(bobX, bobY);
-  ctx.strokeStyle = "#6a11cb";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Draw pendulum bob
-  ctx.beginPath();
-  ctx.arc(bobX, bobY, 10, 0, Math.PI * 2);
-  ctx.fillStyle = "#2575fc";
-  ctx.fill();
+  // Update particle position
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    // Remove particles that go out of canvas
+    if (this.size > 0.2) this.size -= 0.1;
+    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+      this.size = 0;
+    }
+  }
 }
 
-// Update pendulum state
-function updatePendulum() {
-  angleAcceleration = (-gravity / length) * Math.sin(angle);
-  angleVelocity += angleAcceleration;
-  angleVelocity *= 0.99; // Damping
-  angle += angleVelocity;
-}
-
-// Animation loop
-function animate() {
-  updatePendulum();
-  drawPendulum();
-  requestAnimationFrame(animate);
-}
-
-// Start animation
-animate();
-
-document.querySelectorAll('nav ul li a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
-    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-  });
+// Create particles on mouse move
+let particles = [];
+canvas.addEventListener('mousemove', (e) => {
+  const xPos = e.x;
+  const yPos = e.y;
+  for (let i = 0; i < 5; i++) {
+    particles.push(new Particle(xPos, yPos));
+  }
 });
+
+// Animate particles
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((particle, index) => {
+    particle.update();
+    particle.draw();
+    if (particle.size <= 0) {
+      particles.splice(index, 1);
+    }
+  });
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
 
