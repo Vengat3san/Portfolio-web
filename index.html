@@ -1,67 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vengatesan G | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Animation Canvas -->
-    <canvas id="backgroundCanvas"></canvas>
+  <!-- Background Animation Canvas -->
+  <canvas id="backgroundCanvas"></canvas>
 
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <h1>My Portfolio</h1>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <h1>Vengatesan G</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#physics">Physics Animations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Welcome to My Portfolio</h2>
-        <p>I'm a passionate software engineer with a focus on full-stack development and design.</p>
-        <button onclick="window.location.href='#contact'">Get in Touch</button>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Welcome to My Portfolio!</h2>
+    <p>I am Vengatesan G, a PhD student in Theoretical Physics at IMSc, Chennai.</p>
+  </section>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate developer with experience in various technologies including JavaScript, Python, and more.</p>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>PhD student at The Institute of Mathematical Sciences with a strong background in theoretical and computational physics.</p>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of project 1 goes here.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of project 2 goes here.</p>
-        </div>
-    </section>
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>National Institute of Technology, Tiruchirappalli</h3>
+        <p>M.Sc Physics (2022 - 2024) | CGPA: 8.12/10</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Presidency College, Chennai</h3>
+        <p>B.Sc Physics (2019 - 2022) | CGPA: 8.22/10</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me for collaboration or opportunities.</p>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Investigating Mean First Passage Time</h3>
+      <p>Exploring an analytical expression for the mean first passage time of an overdamped Brownian particle in a Morse potential.</p>
+    </div>
+  </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 My Portfolio</p>
-    </footer>
+  <!-- Workshops Section -->
+  <section id="workshops">
+    <h2>Workshops</h2>
+    <p>Participated in a week-long workshop on statistical techniques in astrophysics and cosmology, where I learned Bayesian statistics and ΛCDM modeling.</p>
+  </section>
 
-    <!-- JavaScript for Background Animation -->
-    <script src="script.js"></script>
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>AIR 91 in GATE 2024</li>
+      <li>AIR 171 in CSIR-NET 2023</li>
+      <li>Dr. S. Kalyanaraman Memorial Award</li>
+    </ul>
+  </section>
+
+  <!-- Extracurricular Activities Section -->
+  <section id="activities">
+    <h2>Extracurricular Activities</h2>
+    <p>Organized events and participated in outreach initiatives through SPIE and OPTICA.</p>
+  </section>
+
+  <!-- Physics Animations Section -->
+  <section id="physics">
+    <h2>Physics Animations</h2>
+    <div class="animation-container">
+      <canvas id="pendulumCanvas"></canvas>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:vengatesanganapathy001@gmail.com">vengatesanganapathy001@gmail.com</a></p>
+    <p>Phone: +91 9600567671</p>
+    <p>LinkedIn: <a href="https://linkedin.com">Profile</a></p>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Vengatesan G</p>
+  </footer>
+
+  <!-- JavaScript for Background Animation -->
+  <script src="script.js"></script>
 </body>
 </html>
-
