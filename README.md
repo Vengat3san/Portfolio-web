@@ -1,0 +1,1 @@
+Linear per-sentence pages with Next button. Each page includes the hearts background.
